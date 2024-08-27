@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Properties</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    background-color: #4caf50;
+    color: white;
+    display: block;
+    line-height: 100px;
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#description {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #555;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Display Properties</h1>
+        <div id="test-box" class="box">عنصر يمكن تغييره</div>
+        <div class="controls">
+            <button onclick="changeDisplay('block')">Block</button>
+            <button onclick="changeDisplay('inline')">Inline</button>
+            <button onclick="changeDisplay('inline-block')">Inline-Block</button>
+            <button onclick="changeDisplay('none')">None</button>
+        </div>
+        <p id="description"></p>
+    </div>
+    <script>
+        function changeDisplay(displayType) {
+    const box = document.getElementById('test-box');
+    const description = document.getElementById('description');
+    
+    box.style.display = displayType;
+
+    switch(displayType) {
+        case 'block':
+            description.textContent = "Display: block - العنصر يظهر ككتلة مستقلة في سطر جديد ويأخذ العرض الكامل.";
+            break;
+        case 'inline':
+            description.textContent = "Display: inline - العنصر يظهر في نفس السطر بجانب العناصر الأخرى ولا يمكن تعيين العرض والارتفاع.";
+            break;
+        case 'inline-block':
+            description.textContent = "Display: inline-block - العنصر يظهر بجانب العناصر الأخرى في نفس السطر ويمكن تعيين العرض والارتفاع.";
+            break;
+        case 'none':
+            description.textContent = "Display: none - العنصر مخفي تمامًا ولا يؤثر على التخطيط.";
+            break;
+    }
+}
+
+    </script>
+</body>
+</html>
